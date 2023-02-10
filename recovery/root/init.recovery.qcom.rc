@@ -1,0 +1,8 @@
+import /init.recovery.qcom_decrypt.rc
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+on init
+    setprop vendor.gatekeeper.disable_spu true
